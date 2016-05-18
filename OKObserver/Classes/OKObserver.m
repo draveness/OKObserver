@@ -41,21 +41,28 @@ static NSMutableArray *SwizzledDeallocClasses;
         _observee = observee;
         _keypath = keypath;
 
-        [_observee addObserver:self
-                    forKeyPath:keypath
-                       options:NSKeyValueObservingOptionNew
-                       context:NULL];
-        [[_observee observingKeypath] addObject:keypath];
-        [self swizzledDeallocSelectorForObject:_observee];
 
     }
     return self;
 }
 
 - (void)whenUpdated:(void (^)(id))updateBlock {
+    [_observee addObserver:self
+                forKeyPath:_keypath
+                   options:NSKeyValueObservingOptionNew
+                   context:NULL];
+    [[_observee observingKeypath] addObject:_keypath];
+    [self swizzledDeallocSelectorForObject:_observee];
+
     _updateBlock = updateBlock;
     id newValue = [self.observee valueForKeyPath:self.keypath];
     _updateBlock(newValue);
+}
+
+- (void)update:(OKObserver *)observer {
+    [self whenUpdated:_updateBlock = ^(id newValue) {
+        [observer.observee setValue:newValue forKeyPath:observer.keypath];
+    }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {

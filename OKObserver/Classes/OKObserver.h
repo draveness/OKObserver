@@ -19,4 +19,6 @@
 
 - (void)whenUpdated:(void(^)(id newValue))updateBlock;
 
+- (void)update:(OKObserver *)observer;
+
 @end
