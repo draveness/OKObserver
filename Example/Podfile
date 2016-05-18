@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'OKObserver_Example' do
+  pod 'OKObserver', :path => '../'
+
+  target 'OKObserver_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+  pod 'Expecta'
+  end
+end
