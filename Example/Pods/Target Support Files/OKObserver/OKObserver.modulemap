@@ -1,6 +1,0 @@
-framework module OKObserver {
-  umbrella header "OKObserver-umbrella.h"
-
-  export *
-  module * { export * }
-}

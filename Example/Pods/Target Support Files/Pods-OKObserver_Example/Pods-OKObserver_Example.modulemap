@@ -1,6 +1,0 @@
-framework module Pods_OKObserver_Example {
-  umbrella header "Pods-OKObserver_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
