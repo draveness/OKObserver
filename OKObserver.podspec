@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "OKObserver"
-  s.version          = "0.0.0"
+  s.version          = "0.1.0"
   s.summary          = "A lightweight framework which makes KVO easily to use."
 
   s.description      = <<-DESC
