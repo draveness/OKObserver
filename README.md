@@ -21,7 +21,7 @@ pod "OKObserver"
 Use `OKObserver` to bind view and model.
 
 ```objectivec
-[OKObserve(object, color) update:OKObserve(self, view.backgroundColor)];
+[OKObserve(object, color) update:OKObserve(self.view, backgroundColor)];
 ```
 
 Easily to use API for KVO
